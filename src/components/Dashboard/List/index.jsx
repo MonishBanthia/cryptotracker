@@ -3,9 +3,12 @@ import './styles.css'
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
 import { Tooltip } from '@mui/material';
+import { Link } from "react-router-dom";
+
 
 function List({ coin }) {
     return (
+        <Link to={`/coin/${coin.id}`}>
         <tr className='list-row'>
             <td className='info-row'>
                 <img src={coin.image} className='coin-logo' />
@@ -34,10 +37,8 @@ function List({ coin }) {
                 <h3 className='coin-price' style={{ color: coin.price_change_percentage_24h > 0 ? 'green' : 'red' }}>${coin.current_price.toLocaleString()}</h3>
             </td>
             </Tooltip>
-        
-
-
         </tr>
+        </Link>
     )
 }
 
