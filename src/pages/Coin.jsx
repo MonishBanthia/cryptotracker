@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../components/Common/Header';
@@ -11,6 +10,7 @@ import { GetCoinPrices } from '../functions/GetCoinPrices';
 import LineChart from '../components/Coin/LineChart';
 import { ConvertDate } from '../functions/ConvertDate';
 import SelectDays from '../components/Coin/SelectDays';
+import SettingChartData from '../functions/SettingChartData';
 
 function CoinPage() {
     const { id } = useParams();
@@ -54,8 +54,16 @@ function CoinPage() {
         }
     }
 
-    const handleDaysChange=(event)=>{
+    const handleDaysChange = async (event)=>{
+            setLoading(true);
             setDays(event.target.value);
+
+            const prices = await GetCoinPrices(id , event.target.value);
+            if(prices.length > 0){ 
+            SettingChartData(setChartData , prices);
+            setLoading(false);
+
+        }
        
     }
 

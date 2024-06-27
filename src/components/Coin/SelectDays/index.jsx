@@ -1,22 +1,22 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
+import React from 'react';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import './styles.css'
+import { useState } from 'react';
 
-export default function SelectDays({days , handleDaysChange}) {
-  const [days, setDays] = React.useState(30);
 
-  const handleChange = (event) => {
-    setDays(event.target.value);
-  };
+
+
+export default function SelectDays({days , handleDaysChange , noPtag}) {
+  // const [days, setDays] = useState(30);
+
+  // const handleDaysChange = (event) => {
+  //   setDays(event.target.value);
+  // };
 
   return (
     <div className='select-days'>
-      <p>Price Change In</p>
-        
+{!noPtag && <p>Price Change In</p>}        
         <Select
            style={{
             height: "2.5rem",
