@@ -22,9 +22,7 @@ function LineChart({chartData , priceType , multiAxis}) {
             ticks:{
                 callback : function(value,index,ticks){
                     if(priceType=="prices") return "$" + value.toLocaleString();
-                    else{
-                        return "$" + convertNumber(value);
-                    }
+                    
                 }
             }
          },
@@ -35,9 +33,7 @@ function LineChart({chartData , priceType , multiAxis}) {
             ticks:{
                 callback : function(value,index,ticks){
                     if(priceType=="prices") return "$" + value.toLocaleString();
-                    else{
-                        return "$" + convertNumber(value);
-                    }
+                    
                 }
             }
          }
